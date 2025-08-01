@@ -1,0 +1,3185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 5 Complete Mastery Guide 2025</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --electric-blue: #00d9ff;
+            --neon-pink: #ff00aa;
+            --violet: #8a2be2;
+            --lime: #00ff7f;
+            --sunshine: #ffde59;
+            --deep-purple: #4b0082;
+            --dark-space: #0f0526;
+            --cosmic-pink: #ff1493;
+            --cyber-green: #00ff41;
+            --galaxy-blue: #1e00ff;
+            --box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            --border-radius: 12px;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.8;
+            scroll-behavior: smooth;
+            background-image: radial-gradient(circle at 10% 20%, rgba(138, 43, 226, 0.03) 0%, rgba(138, 43, 226, 0.03) 90%);
+        }
+
+        code, pre {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 0.9em;
+        }
+
+        /* Cyberpunk Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--dark-space) 0%, var(--deep-purple) 100%);
+            padding: 140px 0 100px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid var(--electric-blue);
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 217, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 0, 170, 0.15) 0%, transparent 50%);
+        }
+
+        .hero-title {
+            font-weight: 800;
+            font-size: 4rem;
+            margin-bottom: 25px;
+            background: linear-gradient(90deg, var(--electric-blue), var(--neon-pink), var(--violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 10px rgba(0, 217, 255, 0.3); }
+            50% { text-shadow: 0 0 30px rgba(255, 0, 170, 0.5); }
+            100% { text-shadow: 0 0 10px rgba(138, 43, 226, 0.3); }
+        }
+
+        /* Holographic Cards */
+        .card {
+            border: none;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+            transition: var(--transition);
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.95);
+            position: relative;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(0, 217, 255, 0.1) 0%,
+                rgba(255, 0, 170, 0.1) 50%,
+                rgba(138, 43, 226, 0.1) 100%
+            );
+            transform: rotate(30deg);
+            z-index: 0;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .card-body {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .card-header {
+            background: linear-gradient(90deg, var(--deep-purple), var(--violet));
+            color: white;
+            border-bottom: none;
+            font-weight: 700;
+            padding: 20px;
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Neon Badges */
+        .badge {
+            font-size: 0.85em;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .badge-primary {
+            background-color: var(--electric-blue);
+            color: var(--dark-space);
+        }
+
+        .badge-secondary {
+            background-color: var(--neon-pink);
+            color: white;
+        }
+
+        .badge-success {
+            background-color: var(--lime);
+            color: var(--dark-space);
+        }
+
+        .badge-danger {
+            background-color: var(--cosmic-pink);
+            color: white;
+        }
+
+        .badge-warning {
+            background-color: var(--sunshine);
+            color: var(--dark-space);
+        }
+
+        .badge-info {
+            background-color: var(--galaxy-blue);
+            color: white;
+        }
+
+        /* Glowing Example Containers */
+        .example-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+            border-left: 5px solid var(--electric-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .example-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--electric-blue), var(--neon-pink));
+        }
+
+        .example-title {
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--deep-purple);
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+
+        .example-title i {
+            margin-right: 12px;
+            color: var(--electric-blue);
+            font-size: 1.5rem;
+        }
+
+        /* Cyber Buttons */
+        .btn-cyber {
+            position: relative;
+            overflow: hidden;
+            border: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .btn-cyber-primary {
+            background: linear-gradient(45deg, var(--electric-blue), var(--galaxy-blue));
+            color: white;
+        }
+
+        .btn-cyber-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 217, 255, 0.4);
+            color: white;
+        }
+
+        .btn-cyber-secondary {
+            background: linear-gradient(45deg, var(--neon-pink), var(--cosmic-pink));
+            color: white;
+        }
+
+        .btn-cyber-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 0, 170, 0.4);
+            color: white;
+        }
+
+        /* Interview Questions with Holographic Effect */
+        .interview-question {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: var(--box-shadow);
+            border-left: 4px solid var(--lime);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interview-question::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(0, 255, 127, 0.05) 0%,
+                rgba(0, 217, 255, 0.05) 100%
+            );
+            z-index: 0;
+        }
+
+        .interview-question:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .interview-question .question {
+            font-weight: 700;
+            color: var(--deep-purple);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .interview-question .answer {
+            color: #555;
+            padding-left: 25px;
+            border-left: 3px solid var(--lime);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Quiz Section Styles */
+        .quiz-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+            border-top: 4px solid var(--sunshine);
+        }
+
+        .quiz-question {
+            font-weight: 700;
+            color: var(--deep-purple);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .quiz-option {
+            margin-bottom: 10px;
+            padding: 12px 15px;
+            background: rgba(0, 0, 0, 0.03);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .quiz-option:hover {
+            background: rgba(0, 217, 255, 0.1);
+        }
+
+        .quiz-option.correct {
+            background-color: rgba(0, 255, 127, 0.15);
+            border-left: 4px solid var(--lime);
+        }
+
+        .quiz-option.incorrect {
+            background-color: rgba(255, 0, 170, 0.1);
+            border-left: 4px solid var(--cosmic-pink);
+        }
+
+        /* Navbar with Glow Effect */
+        .navbar {
+            background: rgba(15, 5, 38, 0.95);
+            box-shadow: 0 4px 30px rgba(0, 217, 255, 0.15);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .navbar-brand::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--electric-blue), var(--neon-pink));
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .navbar-brand:hover::after {
+            transform: scaleX(1);
+        }
+
+        .nav-link {
+            padding: 8px 20px;
+            margin: 0 5px;
+            border-radius: 30px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-link::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--electric-blue);
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::before {
+            width: 70%;
+        }
+
+        .nav-link.active {
+            background: rgba(0, 217, 255, 0.2);
+            color: var(--electric-blue);
+        }
+
+        .nav-link.active::before {
+            width: 70%;
+            background: var(--neon-pink);
+        }
+
+        /* Footer with Gradient */
+        .footer {
+            background: linear-gradient(135deg, var(--dark-space) 0%, var(--deep-purple) 100%);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+            position: relative;
+            border-top: 4px solid var(--electric-blue);
+        }
+
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 217, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 0, 170, 0.1) 0%, transparent 50%);
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--electric-blue);
+            margin-bottom: 20px;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        .footer-social a {
+            color: white;
+            font-size: 1.3rem;
+            margin-right: 15px;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-social a:hover {
+            color: var(--electric-blue);
+            transform: translateY(-5px) scale(1.2);
+        }
+
+        .footer-links h5 {
+            color: var(--electric-blue);
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            padding-left: 0;
+        }
+
+        .footer-links a::before {
+            content: "»";
+            position: absolute;
+            left: -15px;
+            opacity: 0;
+            color: var(--neon-pink);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 15px;
+        }
+
+        .footer-links a:hover::before {
+            opacity: 1;
+            left: 0;
+        }
+
+        .creator-info {
+            background: rgba(0, 217, 255, 0.1);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            border-left: 3px solid var(--electric-blue);
+        }
+
+        .creator-info p {
+            color: var(--electric-blue);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .creator-info h6 {
+            color: var(--neon-pink);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(0, 217, 255, 0.2);
+            padding-top: 20px;
+            text-align: center;
+            margin-top: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+ /* Back to Top Button Style */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 50%;
+      font-size: 18px;
+      text-align: center;
+      display: none;
+      z-index: 999;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .back-to-top.active {
+      display: block;
+    }
+
+    .back-to-top:hover {
+      background-color: #0056b3;
+      color: white;
+    }
+
+        /* New Components */
+        .feature-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--electric-blue);
+            text-align: center;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 217, 255, 0.25);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--electric-blue);
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(138, 43, 226, 0.1) 100%);
+            width: 80px;
+            height: 80px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .feature-box h3 {
+            color: var(--deep-purple);
+            margin-bottom: 15px;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+            margin: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--electric-blue), var(--neon-pink));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--electric-blue);
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px var(--electric-blue);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            padding: 5px 10px;
+            background: var(--electric-blue);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        /* New: Advanced Components Section */
+        .component-showcase {
+            border: 2px solid rgba(138, 43, 226, 0.2);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            transition: var(--transition);
+        }
+
+        .component-showcase:hover {
+            border-color: var(--electric-blue);
+            box-shadow: 0 10px 25px rgba(0, 217, 255, 0.1);
+        }
+
+        /* New: Gradient Background Section */
+        .gradient-section {
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(0, 217, 255, 0.1) 100%);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+        }
+
+        /* New: Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* New: Code Highlighting */
+        pre {
+            position: relative;
+            background: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        pre code {
+            display: block;
+            font-family: 'Source Code Pro', monospace;
+            line-height: 1.6;
+        }
+
+        /* New: Tooltip Customization */
+        .tooltip-inner {
+            background-color: var(--electric-blue);
+            font-weight: 500;
+        }
+
+        .bs-tooltip-auto[data-popper-placement^=top] .tooltip-arrow::before,
+        .bs-tooltip-top .tooltip-arrow::before {
+            border-top-color: var(--electric-blue);
+        }
+
+        /* New: Dark Mode Toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 999;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--dark-space);
+            color: white;
+            border: 2px solid var(--electric-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dark-mode-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px var(--electric-blue);
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .card,
+        body.dark-mode .example-container,
+        body.dark-mode .feature-box,
+        body.dark-mode .quiz-card,
+        body.dark-mode .interview-question {
+            background: rgba(30, 30, 30, 0.95);
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .card-header,
+        body.dark-mode .example-title,
+        body.dark-mode h2, 
+        body.dark-mode h3,
+        body.dark-mode h4 {
+            color: var(--electric-blue);
+        }
+
+        body.dark-mode .footer {
+            background: linear-gradient(135deg, #000000 0%, var(--dark-space) 100%);
+        }
+
+        /* New: Progress Bar Animation */
+        .progress-bar-animated {
+            animation: progress-bar-stripes 1s linear infinite;
+        }
+
+        /* New: 3D Card Effect */
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+        }
+
+        .card-3d:hover {
+            transform: rotateY(10deg) rotateX(5deg);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+            
+            .card-header h2 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .example-title {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-rocket me-2"></i>BOOTSTRAP<span style="color: var(--electric-blue)">5</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">
+                            <i class="fas fa-home me-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#grid">
+                            <i class="fas fa-th me-1"></i>Grid
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#components">
+                            <i class="fas fa-cubes me-1"></i>Components
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#utilities">
+                            <i class="fas fa-tools me-1"></i>Utilities
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#customization">
+                            <i class="fas fa-paint-brush me-1"></i>Customize
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#advanced">
+                            <i class="fas fa-star me-1"></i>Advanced
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#interview">
+                            <i class="fas fa-comment-alt me-1"></i>Interview Q&A
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#quiz">
+                            <i class="fas fa-question-circle me-1"></i>Quiz
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle" id="darkModeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center text-white d-flex align-items-center" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h1 class="hero-title">MASTER BOOTSTRAP 5.3</h1>
+                    <p class="lead mb-4">The most comprehensive guide to building responsive, mobile-first websites with the world's most popular front-end component library and Interview Q&A.</p>
+                    <div class="d-flex justify-content-center flex-wrap">
+                        <a href="#grid" class="btn btn-cyber-primary btn-lg me-3 mb-3">
+                            <i class="fas fa-book-open me-2"></i> Start Learning
+                        </a>
+                        <a href="#quiz" class="btn btn-cyber-secondary btn-lg mb-3">
+                            <i class="fas fa-brain me-2"></i> Test Your Knowledge
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968672.png" alt="Bootstrap Logo" class="img-fluid floating" style="max-height: 300px; filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.5))">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container py-5">
+        <!-- Key Features Section -->
+        <section id="features" class="mb-5">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Responsive Design</h3>
+                        <p>Build responsive, mobile-first projects with Bootstrap's powerful grid system and responsive utilities.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h3>Performance</h3>
+                        <p>Optimized for performance with minimal CSS and no jQuery dependency in Bootstrap 5.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h3>Component Rich</h3>
+                        <p>Over 20 customizable components including navbars, modals, cards, and more.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bootstrap Timeline -->
+        <section id="timeline" class="card mb-5">
+            <div class="card-header">
+                <h2 class="mb-0"><i class="fas fa-history section-icon"></i> Bootstrap Evolution</h2>
+            </div>
+            <div class="card-body">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-date">2011</span>
+                        <div class="timeline-content">
+                            <h4>Bootstrap 1.0</h4>
+                            <p>Originally created by Twitter developers as an internal tool, released as open source in August 2011.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">2013</span>
+                        <div class="timeline-content">
+                            <h4>Bootstrap 3</h4>
+                            <p>Mobile-first approach, flat design, and dropped support for IE7. Introduced the panel component (now cards).</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">2015</span>
+                        <div class="timeline-content">
+                            <h4>Bootstrap 4 Alpha</h4>
+                            <p>Rewritten in Sass, flexbox-based grid system, new cards component replaced panels and wells.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">2020</span>
+                        <div class="timeline-content">
+                            <h4>Bootstrap 5 Alpha</h4>
+                            <p>Dropped jQuery dependency, improved customization, new utilities, and updated form controls.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">2021</span>
+                        <div class="timeline-content">
+                            <h4>Bootstrap 5 Stable</h4>
+                            <p>Official release with new offcanvas component, updated utilities, and improved documentation.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">2023</span>
+                        <div class="timeline-content">
+                            <h4>Bootstrap 5.3</h4>
+                            <p>Added dark mode support, new color modes, expanded color palette, and CSS variables for customization.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Getting Started -->
+        <div id="getting-started" class="card fade-in mb-5">
+            <div class="card-header">
+                <h2 class="mb-0"><i class="fas fa-play-circle section-icon"></i> Getting Started</h2>
+            </div>
+            <div class="card-body">
+                <h3>Introduction to Bootstrap 5</h3>
+                <p class="lead">Bootstrap is the world's most popular framework for building responsive, mobile-first sites with CSS, JavaScript, and HTML.</p>
+                
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i> Bootstrap 5 is a major rewrite with no dependency on jQuery, improved customization, and new components.
+                </div>
+
+                <h4 class="mt-4">Why Use Bootstrap 5?</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="example-container">
+                            <div class="example-title"><i class="fas fa-check-circle"></i> Advantages</div>
+                            <ul>
+                                <li><strong>Responsive Grid System</strong>: Built-in 12-column responsive grid</li>
+                                <li><strong>Pre-styled Components</strong>: Ready-to-use UI components</li>
+                                <li><strong>Cross-browser Compatibility</strong>: Works consistently across browsers</li>
+                                <li><strong>Mobile-first Approach</strong>: Designed for mobile devices first</li>
+                                <li><strong>Customizable</strong>: Easy to theme and extend</li>
+                                <li><strong>Active Community</strong>: Large community and ecosystem</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="example-container">
+                            <div class="example-title"><i class="fas fa-exclamation-circle"></i> When Not to Use</div>
+                            <ul>
+                                <li><strong>Highly Custom Designs</strong>: May require overriding many styles</li>
+                                <li><strong>Performance Critical Apps</strong>: Includes unused CSS by default</li>
+                                <li><strong>Single Page Applications</strong>: May prefer component-based frameworks</li>
+                                <li><strong>Design System Exists</strong>: If you already have a custom design system</li>
+                                <li><strong>Learning CSS</strong>: Better to learn raw CSS fundamentals first</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="mt-4">Quick Start</h4>
+                <div class="example-container">
+                    <div class="example-title"><i class="fas fa-bolt"></i> CSS and JS</div>
+                    <p>Include Bootstrap's CSS and JS in your project via CDN:</p>
+                    <pre><code>&lt;!-- CSS only --&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+
+&lt;!-- JavaScript Bundle with Popper --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</code></pre>
+                </div>
+
+                <h4 class="mt-4">Package Managers</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="example-container">
+                            <div class="example-title"><i class="fab fa-npm"></i> npm</div>
+                            <pre><code>npm install bootstrap@5.3.0</code></pre>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="example-container">
+                            <div class="example-title"><i class="fab fa-yarn"></i> yarn</div>
+                            <pre><code>yarn add bootstrap@5.3.0</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="mt-4">Starter Template</h4>
+                <div class="example-container">
+                    <div class="example-title"><i class="fas fa-file-code"></i> HTML5 Template</div>
+                    <pre><code>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;title&gt;Bootstrap demo&lt;/title&gt;
+    &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, world!&lt;/h1&gt;
+    &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grid System -->
+        <div id="grid" class="card fade-in mb-5">
+            <div class="card-header">
+                <h2 class="mb-0"><i class="fas fa-th section-icon"></i> Grid System</h2>
+            </div>
+            <div class="card-body">
+                <h3>Bootstrap's Powerful 12-Column Grid</h3>
+                <p class="lead">Bootstrap's grid system uses a series of containers, rows, and columns to layout and align content. It's built with flexbox and is fully responsive.</p>
+                
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i> The grid system is mobile-first, meaning it defaults to stacking columns vertically on small screens before applying horizontal layouts on larger screens.
+                </div>
+
+                <h4 class="mt-4">Basic Grid Structure</h4>
+                <div class="example-container">
+                    <div class="example-title"><i class="fas fa-code"></i> Basic Grid Example</div>
+                    <pre><code>&lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-sm-12 col-md-6 col-lg-4"&gt;
+            Column 1
+        &lt;/div&gt;
+        &lt;div class="col-sm-12 col-md-6 col-lg-4"&gt;
+            Column 2
+        &lt;/div&gt;
+        &lt;div class="col-sm-12 col-lg-4"&gt;
+            Column 3
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="example-container">
+                            <div class="example-title"><i class="fas fa-mobile-alt"></i> Breakpoints Reference</div>
+                            <table class="table table-bordered">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Breakpoint</th>
+                                        <th>Class Prefix</th>
+                                        <th>Dimensions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>X-Small</td>
+                                        <td><span class="badge badge-primary">None</span></td>
+                                        <td>&lt;576px</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Small</td>
+                                        <td><span class="badge badge-primary">sm</span></td>
+                                        <td>≥576px</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Medium</td>
+                                        <td><span class="badge badge-primary">md</span></td>
+                                        <td>≥768px</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Large</td>
+                                        <td><span class="badge badge-primary">lg</span></td>
+                                        <td>≥992px</td>
+                                    </tr>
+                                    <tr>
+                                        <td>X-Large</td>
+                                        <td><span class="badge badge-primary">xl</span></td>
+                                        <td>≥1200px</td>
+                                    </tr>
+                                    <tr>
+                                        <td>XX-Large</td>
+                                        <td><span class="badge badge-primary">xxl</span></td>
+                                        <td>≥1400px</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="example-container">
+                            <div class="example-title"><i class="fas fa-ruler-combined"></i> Grid Options</div>
+                            <table class="table table-bordered">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Class</th>
+                                        <th>Behavior</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>.col-</code></td>
+                                        <td>Extra small devices (&lt;576px)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>.col-sm-</code></td>
+                                        <td>Small devices (≥576px)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>.col-md-</code></td>
+                                        <td>Medium devices (≥768px)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>.col-lg-</code></td>
+                                        <td>Large devices (≥992px)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>.col-xl-</code></td>
+                                        <td>X-Large devices (≥1200px)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>.col-xxl-</code></td>
+                                        <td>XX-Large devices (≥1400px)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="mt-4">Live Grid Demo</h4>
+                <div class="example-container">
+                    <div class="example-title"><i class="fas fa-laptop-code"></i> Interactive Grid</div>
+                    <div class="container border p-4 mb-4 bg-light">
+                        <div class="row mb-3">
+                            <div class="col-12 col-md-6 col-lg-3 p-3 bg-primary bg-opacity-10 border">
+                                <span class="d-block d-md-none">Full width on mobile</span>
+                                <span class="d-none d-md-block d-lg-none">Half width on tablet</span>
+                                <span class="d-none d-lg-block">Quarter width on desktop</span>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-3 p-3 bg-success bg-opacity-10 border">
+                                <span class="d-block d-md-none">Full width on mobile</span>
+                                <span class="d-none d-md-block d-lg-none">Half width on tablet</span>
+                                <span class="d-none d-lg-block">Quarter width on desktop</span>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-3 p-3 bg-warning bg-opacity-10 border">
+                                <span class="d-block d-md-none">Full width on mobile</span>
+                                <span class="d-none d-md-block d-lg-none">Half width on tablet</span>
+                                <span class="d-none d-lg-block">Quarter width on desktop</span>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-3 p-3 bg-danger bg-opacity-10 border">
+                                <span class="d-block d-md-none">Full width on mobile</span>
+                                <span class="d-none d-md-block d-lg-none">Half width on tablet</span>
+                                <span class="d-none d-lg-block">Quarter width on desktop</span>
+                            </div>
+                        </div>
+                    </div>
+                    <pre><code>&lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-12 col-md-6 col-lg-3"&gt;
+            Content
+        &lt;/div&gt;
+        &lt;div class="col-12 col-md-6 col-lg-3"&gt;
+            Content
+        &lt;/div&gt;
+        &lt;div class="col-12 col-md-6 col-lg-3"&gt;
+            Content
+        &lt;/div&gt;
+        &lt;div class="col-12 col-md-6 col-lg-3"&gt;
+            Content
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <h4 class="mt-4">Advanced Grid Techniques</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="example-container">
+                            <div class="example-title"><i class="fas fa-align-left"></i> Column Wrapping</div>
+                            <p>When more than 12 columns are placed in a single row, each group of extra columns will wrap to a new line.</p>
+                            <pre><code>&lt;div class="row"&gt;
+    &lt;div class="col-9"&gt;.col-9&lt;/div&gt;
+    &lt;div class="col-4"&gt;.col-4&lt;/div&gt; &lt;!-- Wraps --&gt;
+    &lt;div class="col-6"&gt;.col-6&lt;/div&gt; &lt;!-- Wraps --&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="example-container">
+                            <div class="example-title"><i class="fas fa-arrows-alt-h"></i> Column Reordering</div>
+                            <p>Change the visual order of your content with order classes.</p>
+                            <pre><code>&lt;div class="row"&gt;
+    &lt;div class="col order-3"&gt;First in DOM, ordered last&lt;/div&gt;
+    &lt;div class="col order-1"&gt;Second in DOM, ordered first&lt;/div&gt;
+    &lt;div class="col order-2"&gt;Third in DOM, ordered second&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="mt-4">Nested Grids</h4>
+                <div class="example-container">
+                    <div class="example-title"><i class="fas fa-boxes"></i> Nested Grid Example</div>
+                    <p>You can nest grids by adding a new <code>.row</code> and set of <code>.col-*</code> columns within an existing column.</p>
+                    <pre><code>&lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-md-8"&gt;
+            Main content
+            &lt;div class="row"&gt;
+                &lt;div class="col-md-6"&gt;Nested column 1&lt;/div&gt;
+                &lt;div class="col-md-6"&gt;Nested column 2&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="col-md-4"&gt;Sidebar&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <h4 class="mt-4">Vertical Alignment</h4>
+                <div class="example-container">
+                    <div class="example-title"><i class="fas fa-align-center"></i> Aligning Columns Vertically</div>
+                    <p>Use flexbox alignment utilities to vertically align columns within a row.</p>
+                    <pre><code>&lt;div class="row align-items-start"&gt;
+    &lt;div class="col"&gt;Top aligned&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row align-items-center"&gt;
+    &lt;div class="col"&gt;Middle aligned&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row align-items-end"&gt;
+    &lt;div class="col"&gt;Bottom aligned&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Components -->
+        <div id="components" class="card fade-in mb-5">
+            <div class="card-header">
+                <h2 class="mb-0"><i class="fas fa-cubes section-icon"></i> Components</h2>
+            </div>
+            <div class="card-body">
+                <h3>Essential Bootstrap Components</h3>
+                <p class="lead">Bootstrap comes with dozens of components that can help you quickly build beautiful interfaces.</p>
+                
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i> All components are responsive and customizable. You can modify their appearance using utility classes or custom CSS.
+                </div>
+
+                <h4 class="mt-4">Navigation Components</h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="example-container">
+                            <div class="example-title"><i class="fas fa-bars"></i> Navbar</div>
+                            <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+                                <div class="container-fluid">
+                                    <a class="navbar-brand" href="#">Navbar</a>
+                                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample">
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse" id="navbarExample">
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="#">Home</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Features</a>
+                                            </li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                                                    Dropdown
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                    <li><hr class="dropdown-divider"></li>
+                                                    <li><a class="dropdown-item" href="#">Something else</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <form class="d-flex">
+                                            <input class="form-control me-2" type="search" placeholder="Search">
+                                            <button class="btn btn-outline-success" type="submit">Search</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </nav>
+                            <pre><code>&lt;nav class="navbar navbar-expand-lg navbar-light bg-light"&gt;
+    &lt;div class="container-fluid"&gt;
+        &lt;a class="navbar-brand" href="#"&gt;Navbar&lt;/a&gt;
+        &lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample"&gt;
+            &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class="collapse navbar-collapse" id="navbarExample"&gt;
+            &lt;ul class="navbar-nav me-auto mb-2 mb-lg-0"&gt;
+                &lt;li class="nav-item"&gt;
+                    &lt;a class="nav-link active" href="#"&gt;Home&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;!-- More items --&gt;
+            &lt;/ul&gt;
+            &lt;form class="d-flex"&gt;
+                &lt;input class="form-control me-2" type="search" placeholder="Search"&gt;
+                &lt;button class="btn btn-outline-success" type="submit"&gt;Search&lt;/button&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="example-container">
+                            <div class="example-title"><i class="fas fa-compass"></i> Navs & Tabs</div>
+                            <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button">Home</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button">Profile</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button">Contact</button>
+                                </li>
+                            </ul>
+                            <div class="tab-content p-3 border border-top-0" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel">
+                                    This is some placeholder content for the Home tab.
+                                </div>
+                                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel">
+                                    Profile content would go here.
+                                </div>
+                                <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel">
+                                    Contact information would be displayed here.
+                                </div>
+                            </div>
+                            <pre><code>&lt;ul class="nav nav-tabs" id="myTab" role="tablist"&gt;
+    &lt;li class="nav-item" role="presentation"&gt;
+        &lt;button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"&gt;Home&lt;/button&gt;
+    &lt;/li&gt;
+    &lt;!-- More tabs --&gt;
+&lt;/ul&gt;
+&lt;div class="tab-content" id="myTabContent"&gt;
+    &lt;div class="tab-pane fade show active" id="home" role="tabpanel"&gt;
+        Content
+    &lt;/div&gt;
+    &lt;!-- More panes --&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="mt-4">Content Components</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="example-container">
+                            <div class="example-title"><i class="far fa-id-card"></i> Cards</div>
+                            <div class="card mb-3" style="width: 100%;">
+                                <img src="https://blog.getbootstrap.com/assets/img/2020/06/v5-new-logo.png" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card Title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                            <pre><code>&lt;div class="card" style="width: 18rem;"&gt;
+    &lt;img src="..." class="card-img-top" alt="..."&gt;
+    &lt;div class="card-body"&gt;
+        &lt;h5 class="card-title"&gt;Card Title&lt;/h5&gt;
+        &lt;p class="card-text"&gt;Some text...&lt;/p&gt;
+        &lt;a href="#" class="btn btn-primary"&gt;Button&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="example-container">
+                            <div class="example-title"><i class="fas fa-table"></i> Accordion</div>
+                            <div class="accordion mb-3" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                            Accordion Item #1
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            Content for the first accordion item.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                            Accordion Item #2
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            Content for the second accordion item.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <pre><code>&lt;div class="accordion" id="accordionExample"&gt;
+    &lt;div class="accordion-item"&gt;
+        &lt;h2 class="accordion-header"&gt;
+            &lt;button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"&gt;
+                Item #1
+            &lt;/button&gt;
+        &lt;/h2&gt;
+        &lt;div id="collapseOne" class="accordion-collapse collapse show"&gt;
+            &lt;div class="accordion-body"&gt;
+                Content
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- More items --&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="mt-4">Interactive Components</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="example-container">
+                            <div class="example-title"><i class="fas fa-spinner"></i> Modal</div>
+
+                            <img 
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20200823162349/Screenshot-from-2020-08-23-16-23-19.png" 
+            alt="Modal Example" 
+            class="img-fluid rounded mb-3"
+          >
+                            <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Launch demo modal
+                            </button>
+                            
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            This is a Bootstrap modal dialog box.
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <pre><code>&lt;button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"&gt;
+  Launch modal
+&lt;/button&gt;
+
+&lt;div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"&gt;
+  &lt;div class="modal-dialog"&gt;
+    &lt;div class="modal-content"&gt;
+      &lt;div class="modal-header"&gt;
+        &lt;h5 class="modal-title"&gt;Modal title&lt;/h5&gt;
+        &lt;button type="button" class="btn-close" data-bs-dismiss="modal"&gt;&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class="modal-body"&gt;
+        Modal body
+      &lt;/div&gt;
+      &lt;div class="modal-footer"&gt;
+        &lt;button type="button" class="btn btn-secondary" data-bs-dismiss="modal"&gt;Close&lt;/button&gt;
+        &lt;button type="button" class="btn btn-primary"&gt;Save&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="example-container">
+                            <div class="example-title"><i class="fas fa-bell"></i> Toast</div>
+
+                            <img 
+            src="https://www.jqueryscript.net/images/bootstrap-toaster.jpg" 
+            alt="Toast Example" 
+            class="img-fluid rounded mb-3"
+          >
+                            <button type="button" class="btn btn-primary mb-3" id="liveToastBtn">
+                                Show toast
+                            </button>
+                            <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                                <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+                                    <div class="toast-header">
+                                        <strong class="me-auto">Bootstrap</strong>
+                                        <small>Just now</small>
+                                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                    </div>
+                                    <div class="toast-body">
+                                        Hello, world! This is a toast message.
+                                    </div>
+                                </div>
+                            </div>
+                            <pre><code>&lt;button type="button" class="btn btn-primary" id="liveToastBtn"&gt;Show toast&lt;/button&gt;
+
+&lt;div class="position-fixed bottom-0 end-0 p-3"&gt;
+  &lt;div id="liveToast" class="toast hide" role="alert"&gt;
+    &lt;div class="toast-header"&gt;
+      &lt;strong class="me-auto"&gt;Bootstrap&lt;/strong&gt;
+      &lt;button type="button" class="btn-close" data-bs-dismiss="toast"&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="toast-body"&gt;
+      Toast message
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+  const toastTrigger = document.getElementById('liveToastBtn')
+  const toastLiveExample = document.getElementById('liveToast')
+  if (toastTrigger) {
+    toastTrigger.addEventListener('click', () => {
+      const toast = new bootstrap.Toast(toastLiveExample)
+      toast.show()
+    })
+  }
+&lt;/script&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="mt-4">Form Components</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="example-container">
+                            <div class="example-title"><i class="fas fa-keyboard"></i> Form Controls</div>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1">
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-2 mb-4">Submit</button>
+                            </form>
+                            <pre><code>&lt;form&gt;
+    &lt;div class="mb-3"&gt;
+        &lt;label for="exampleInputEmail1" class="form-label"&gt;Email address&lt;/label&gt;
+        &lt;input type="email" class="form-control" id="exampleInputEmail1"&gt;
+        &lt;div class="form-text"&gt;We'll never share your email.&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="mb-3"&gt;
+        &lt;label for="exampleInputPassword1" class="form-label"&gt;Password&lt;/label&gt;
+        &lt;input type="password" class="form-control" id="exampleInputPassword1"&gt;
+    &lt;/div&gt;
+    &lt;div class="mb-3 form-check"&gt;
+        &lt;input type="checkbox" class="form-check-input" id="exampleCheck1"&gt;
+        &lt;label class="form-check-label" for="exampleCheck1"&gt;Check me out&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="example-container">
+                            <div class="example-title"><i class="fas fa-sliders-h"></i> Form Select & Range</div>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="formSelect" class="form-label">Select example</label>
+                                    <select class="form-select" id="formSelect">
+                                        <option selected>Open this select menu</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="formRange" class="form-label">Range input</label>
+                                    <input type="range" class="form-range" id="formRange" min="0" max="100">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Radio buttons</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadio" id="flexRadio1">
+                                        <label class="form-check-label" for="flexRadio1">Default radio</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadio" id="flexRadio2" checked>
+                                        <label class="form-check-label" for="flexRadio2">Checked radio</label>
+                                    </div>
+                                </div>
+                            </form>
+                            <pre><code>&lt;div class="mb-3"&gt;
+    &lt;label for="formSelect" class="form-label"&gt;Select example&lt;/label&gt;
+    &lt;select class="form-select" id="formSelect"&gt;
+        &lt;option selected&gt;Open this select menu&lt;/option&gt;
+        &lt;option value="1"&gt;One&lt;/option&gt;
+        &lt;option value="2"&gt;Two&lt;/option&gt;
+        &lt;option value="3"&gt;Three&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/div&gt;
+
+&lt;div class="mb-3"&gt;
+    &lt;label for="formRange" class="form-label"&gt;Range input&lt;/label&gt;
+    &lt;input type="range" class="form-range" id="formRange" min="0" max="100"&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advanced Components -->
+        <div id="advanced" class="card fade-in mb-5">
+            <div class="card-header">
+                <h2 class="mb-0"><i class="fas fa-star section-icon"></i> Advanced Components</h2>
+            </div>
+            <div class="card-body">
+                <h3>Advanced Bootstrap Techniques</h3>
+                <p class="lead">Take your Bootstrap skills to the next level with these advanced components and techniques.</p>
+                
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i> These advanced techniques combine Bootstrap with custom CSS and JavaScript for enhanced functionality.
+                </div>
+
+                <h4 class="mt-4">Custom Scrollspy</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="example-container">
+                            <div class="example-title"><i class="fas fa-list-ol"></i> Scrollspy Navigation</div>
+                            <nav id="navbar-example3" class="navbar navbar-light bg-light flex-column align-items-stretch p-3">
+                                <a class="navbar-brand" href="#">Navbar</a>
+                                <nav class="nav nav-pills flex-column">
+                                    <a class="nav-link" href="#item-1">Item 1</a>
+                                    <nav class="nav nav-pills flex-column">
+                                        <a class="nav-link ms-3 my-1" href="#item-1-1">Item 1-1</a>
+                                        <a class="nav-link ms-3 my-1" href="#item-1-2">Item 1-2</a>
+                                    </nav>
+                                    <a class="nav-link" href="#item-2">Item 2</a>
+                                    <a class="nav-link" href="#item-3">Item 3</a>
+                                </nav>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="example-container">
+                            <div class="example-title"><i class="fas fa-code"></i> Scrollspy Implementation</div>
+                            <pre><code>&lt;nav id="navbar-example3" class="navbar navbar-light bg-light flex-column align-items-stretch p-3"&gt;
+    &lt;a class="navbar-brand" href="#"&gt;Navbar&lt;/a&gt;
+    &lt;nav class="nav nav-pills flex-column"&gt;
+        &lt;a class="nav-link" href="#item-1"&gt;Item 1&lt;/a&gt;
+        &lt;nav class="nav nav-pills flex-column"&gt;
+            &lt;a class="nav-link ms-3 my-1" href="#item-1-1"&gt;Item 1-1&lt;/a&gt;
+            &lt;a class="nav-link ms-3 my-1" href="#item-1-2"&gt;Item 1-2&lt;/a&gt;
+        &lt;/nav&gt;
+        &lt;a class="nav-link" href="#item-2"&gt;Item 2&lt;/a&gt;
+        &lt;a class="nav-link" href="#item-3"&gt;Item 3&lt;/a&gt;
+    &lt;/nav&gt;
+&lt;/nav&gt;
+
+&lt;div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-offset="0" tabindex="0"&gt;
+    &lt;h4 id="item-1"&gt;Item 1&lt;/h4&gt;
+    &lt;p&gt;Content...&lt;/p&gt;
+    &lt;h5 id="item-1-1"&gt;Item 1-1&lt;/h5&gt;
+    &lt;p&gt;Content...&lt;/p&gt;
+    &lt;h5 id="item-1-2"&gt;Item 1-2&lt;/h5&gt;
+    &lt;p&gt;Content...&lt;/p&gt;
+    &lt;h4 id="item-2"&gt;Item 2&lt;/h4&gt;
+    &lt;p&gt;Content...&lt;/p&gt;
+    &lt;h4 id="item-3"&gt;Item 3&lt;/h4&gt;
+    &lt;p&gt;Content...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="mt-4">Custom Carousel with Indicators</h4>
+                <div class="example-container">
+                    <div class="example-title"><i class="fas fa-images"></i> Enhanced Carousel</div>
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="https://media.istockphoto.com/id/471926619/photo/moraine-lake-at-sunrise-banff-national-park-canada.jpg?s=612x612&w=0&k=20&c=mujiCtVk5QA697SD3d8V8BGmd91-8HlxCNHkolEA0Bo=" class="d-block w-100" height="500px" alt="First slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>First slide label</h5>
+                                    <p>Some representative placeholder content for the first slide.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/049/855/296/small_2x/nature-background-high-resolution-wallpaper-for-a-serene-and-stunning-view-photo.jpg" class="d-block w-100" height="500px" alt="Second slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Second slide label</h5>
+                                    <p>Some representative placeholder content for the second slide.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://media.istockphoto.com/id/1550071750/photo/green-tea-tree-leaves-camellia-sinensis-in-organic-farm-sunlight-fresh-young-tender-bud.jpg?s=612x612&w=0&k=20&c=RC_xD5DY5qPH_hpqeOY1g1pM6bJgGJSssWYjVIvvoLw=" height="500px" class="d-block w-100" alt="Third slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Third slide label</h5>
+                                    <p>Some representative placeholder content for the third slide.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <pre class="mt-5"><code>&lt;div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel"&gt;
+    &lt;div class="carousel-indicators"&gt;
+        &lt;button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"&gt;&lt;/button&gt;
+        &lt;button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"&gt;&lt;/button&gt;
+        &lt;button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="carousel-inner"&gt;
+        &lt;div class="carousel-item active"&gt;
+            &lt;img src="..." class="d-block w-100" alt="..."&gt;
+            &lt;div class="carousel-caption d-none d-md-block"&gt;
+                &lt;h5&gt;First slide label&lt;/h5&gt;
+                &lt;p&gt;Some content&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- More items --&gt;
+    &lt;/div&gt;
+    &lt;button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev"&gt;
+        &lt;span class="carousel-control-prev-icon"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next"&gt;
+        &lt;span class="carousel-control-next-icon"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <h4 class="mt-4">Custom Form Validation</h4>
+                <div class="example-container">
+                    <div class="example-title"><i class="fas fa-check-circle"></i> Enhanced Form Validation</div>
+                    <form class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="validationCustom01" class="form-label">First name</label>
+                            <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="validationCustom02" class="form-label">Last name</label>
+                            <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="validationCustomUsername" class="form-label">Username</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text">@</span>
+                                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                                <div class="invalid-feedback">
+                                    Please choose a username.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                <label class="form-check-label" for="invalidCheck">
+                                    Agree to terms and conditions
+                                </label>
+                                <div class="invalid-feedback">
+                                    You must agree before submitting.
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary mb-4" type="submit">Submit form</button>
+                    </form>
+                    <pre><code>&lt;form class="needs-validation" novalidate&gt;
+    &lt;div class="mb-3"&gt;
+        &lt;label for="validationCustom01" class="form-label"&gt;First name&lt;/label&gt;
+        &lt;input type="text" class="form-control" id="validationCustom01" required&gt;
+        &lt;div class="valid-feedback"&gt;
+            Looks good!
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- More fields --&gt;
+    &lt;button class="btn btn-primary" type="submit"&gt;Submit form&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;script&gt;
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+&lt;/script&gt;</code></pre>
+                </div>
+
+                <h4 class="mt-4">Custom Progress Bars</h4>
+                <div class="example-container">
+                    <div class="example-title"><i class="fas fa-tasks"></i> Animated Progress Bars</div>
+                    <div class="progress mb-3" style="height: 20px;">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="progress mb-3" style="height: 20px;">
+                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="progress mb-3" style="height: 20px;">
+                        <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <pre><code>&lt;div class="progress" style="height: 20px;"&gt;
+    &lt;div class="progress-bar progress-bar-striped progress-bar-animated" 
+         role="progressbar" style="width: 75%"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="progress" style="height: 20px;"&gt;
+    &lt;div class="progress-bar bg-success progress-bar-striped progress-bar-animated" 
+         role="progressbar" style="width: 45%"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="progress" style="height: 20px;"&gt;
+    &lt;div class="progress-bar bg-info progress-bar-striped progress-bar-animated" 
+         role="progressbar" style="width: 60%"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <h4 class="mt-4">Custom Dropdowns</h4>
+                <div class="example-container">
+                    <div class="example-title"><i class="fas fa-caret-square-down"></i> Enhanced Dropdowns</div>
+                    <div class="dropdown mb-3">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Standard Dropdown
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="btn-group mb-3">
+                        <button type="button" class="btn btn-danger">Action</button>
+                        <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle mb-4" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown with Headers
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                            <li><h6 class="dropdown-header">Dropdown header</h6></li>
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item active" href="#">Active action</a></li>
+                            <li><a class="dropdown-item disabled" href="#">Disabled action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                    <pre><code>&lt;!-- Standard Dropdown --&gt;
+&lt;div class="dropdown"&gt;
+    &lt;button class="btn btn-secondary dropdown-toggle" type="button" 
+            id="dropdownMenuButton1" data-bs-toggle="dropdown"&gt;
+        Standard Dropdown
+    &lt;/button&gt;
+    &lt;ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"&gt;
+        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- Split Button Dropdown --&gt;
+&lt;div class="btn-group"&gt;
+    &lt;button type="button" class="btn btn-danger"&gt;Action&lt;/button&gt;
+    &lt;button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" 
+            data-bs-toggle="dropdown"&gt;
+        &lt;span class="visually-hidden"&gt;Toggle Dropdown&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;ul class="dropdown-menu"&gt;
+        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;hr class="dropdown-divider"&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- Dropdown with Headers --&gt;
+&lt;div class="dropdown"&gt;
+    &lt;button class="btn btn-primary dropdown-toggle" type="button" 
+            id="dropdownMenuButton2" data-bs-toggle="dropdown"&gt;
+        Dropdown with Headers
+    &lt;/button&gt;
+    &lt;ul class="dropdown-menu"&gt;
+        &lt;li&gt;&lt;h6 class="dropdown-header"&gt;Dropdown header&lt;/h6&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="dropdown-item active" href="#"&gt;Active action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="dropdown-item disabled" href="#"&gt;Disabled action&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Utilities -->
+        <div id="utilities" class="card fade-in mb-5">
+            <div class="card-header">
+                <h2 class="mb-0"><i class="fas fa-tools section-icon"></i> Utilities</h2>
+            </div>
+            <div class="card-body">
+                <h3>Bootstrap Utility Classes</h3>
+                <p class="lead">Bootstrap includes dozens of utility classes for showing, hiding, aligning, spacing, and more.</p>
+                
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i> Utility classes are designed to be single-purpose and typically have only one CSS property. They follow a consistent naming pattern.
+                </div>
+
+                <h4 class="mt-4">Spacing Utilities</h4>
+                <div class="example-container">
+                    <div class="example-title"><i class="fas fa-arrows-alt-v"></i> Margin and Padding</div>
+                    <p>Bootstrap includes a wide range of shorthand responsive margin and padding utility classes to modify an element's appearance.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Margin Notation</h5>
+                            <p>The classes are named using the format: <code>{property}{sides}-{size}</code></p>
+                            <ul>
+                                <li><strong>property</strong>: <code>m</code> for margin, <code>p</code> for padding</li>
+                                <li><strong>sides</strong>: 
+                                    <ul>
+                                        <li><code>t</code> - top</li>
+                                        <li><code>b</code> - bottom</li>
+                                        <li><code>s</code> - start (left in LTR)</li>
+                                        <li><code>e</code> - end (right in LTR)</li>
+                                        <li><code>x</code> - left and right</li>
+                                        <li><code>y</code> - top and bottom</li>
+                                        <li>blank - all sides</li>
+                                    </ul>
+                                </li>
+                                <li><strong>size</strong>: 
+                                    <ul>
+                                        <li><code>0</code> - 0</li>
+                                        <li><code>1</code> - 0.25rem</li>
+                                        <li><code>2</code> - 0.5rem</li>
+                                        <li><code>3</code> - 1rem</li>
+                                        <li><code>4</code> - 1.5rem</li>
+                                        <li><code>5</code> - 3rem</li>
+                                        <li><code>auto</code> - auto</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Examples</h5>
+                            <pre><code>&lt;div class="mt-3"&gt;Margin top&lt;/div&gt;
+&lt;div class="pb-4"&gt;Padding bottom&lt;/div&gt;
+&lt;div class="mx-auto"&gt;Horizontal auto margin&lt;/div&gt;
+&lt;div class="p-5"&gt;Padding all sides&lt;/div&gt;</code></pre>
+                            
+                            <h5 class="mt-3">Responsive Spacing</h5>
+                            <p>Add breakpoint abbreviations to apply styles starting at that breakpoint:</p>
+                            <pre><code>&lt;div class="mt-3 mt-md-5"&gt;
+    Margin top 3 on mobile, 5 on medium+
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="mt-4">Text Utilities</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="example-container">
+                            <div class="example-title"><i class="fas fa-text-height"></i> Text Alignment</div>
+                            <p class="text-start">Start aligned text</p>
+                            <p class="text-center">Center aligned text</p>
+                            <p class="text-end">End aligned text</p>
+                            <pre><code>&lt;p class="text-start"&gt;Start aligned&lt;/p&gt;
+&lt;p class="text-center"&gt;Center aligned&lt;/p&gt;
+&lt;p class="text-end"&gt;End aligned&lt;/p&gt;</code></pre>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="example-container">
+                            <div class="example-title"><i class="fas fa-font"></i> Text Transformation</div>
+                            <p class="text-lowercase">LOWERCASE TEXT</p>
+                            <p class="text-uppercase">uppercase text</p>
+                            <p class="text-capitalize">capitalized text</p>
+                            <pre><code>&lt;p class="text-lowercase"&gt;LOWERCASE&lt;/p&gt;
+&lt;p class="text-uppercase"&gt;uppercase&lt;/p&gt;
+&lt;p class="text-capitalize"&gt;capitalized&lt;/p&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="mt-4">Display Utilities</h4>
+                <div class="example-container">
+                    <div class="example-title"><i class="fas fa-eye"></i> Display Properties</div>
+                    <p>Quickly and responsively toggle the display value of components and more with our display utilities.</p>
+                    
+                    <div class="d-inline p-2 bg-primary text-white">d-inline</div>
+                    <div class="d-inline p-2 bg-dark text-white">d-inline</div>
+                    <div class="d-block p-2 bg-primary text-white mb-2 mt-3">d-block</div>
+                    <div class="d-block p-2 bg-dark text-white mb-4">d-block</div>
+                    
+                    <pre><code>&lt;div class="d-inline"&gt;inline&lt;/div&gt;
+&lt;div class="d-block"&gt;block&lt;/div&gt;
+&lt;div class="d-none"&gt;hidden&lt;/div&gt;
+&lt;div class="d-md-none d-lg-block"&gt;
+    Hidden on medium, visible on large
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <h4 class="mt-4">Flex Utilities</h4>
+                <div class="example-container">
+                    <div class="example-title"><i class="fas fa-boxes"></i> Flexbox Utilities</div>
+                    <p>Bootstrap provides comprehensive flexbox utilities for controlling layout, alignment, and sizing.</p>
+                    
+                    <div class="d-flex p-2 bg-light mb-3">
+                        <div class="p-2 bg-primary text-white">Flex item 1</div>
+                        <div class="p-2 bg-dark text-white">Flex item 2</div>
+                        <div class="p-2 bg-primary text-white">Flex item 3</div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between p-2 bg-light mb-3">
+                        <div class="p-2 bg-primary text-white">Justify content</div>
+                        <div class="p-2 bg-dark text-white">Between</div>
+                    </div>
+                    
+                    <pre><code>&lt;div class="d-flex"&gt;Flex container&lt;/div&gt;
+&lt;div class="d-flex justify-content-between"&gt;
+    Justify content between
+&lt;/div&gt;
+&lt;div class="d-flex align-items-center"&gt;
+    Align items center
+&lt;/div&gt;
+&lt;div class="flex-fill"&gt;Fill available space&lt;/div&gt;</code></pre>
+                </div>
+
+                <h4 class="mt-4">Color Utilities</h4>
+                <div class="example-container">
+                    <div class="example-title"><i class="fas fa-palette"></i> Color and Background</div>
+                    <p>Convey meaning through color with a handful of color utility classes.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>
+                            <div class="p-3 mb-2 bg-secondary text-white">.bg-secondary</div>
+                            <div class="p-3 mb-2 bg-success text-white">.bg-success</div>
+                            <div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 mb-2 bg-warning text-dark">.bg-warning</div>
+                            <div class="p-3 mb-2 bg-info text-dark">.bg-info</div>
+                            <div class="p-3 mb-2 bg-light text-dark">.bg-light</div>
+                            <div class="p-3 mb-2 bg-dark text-white">.bg-dark</div>
+                        </div>
+                    </div>
+                    
+                    <pre><code>&lt;div class="text-primary"&gt;Primary text&lt;/div&gt;
+&lt;div class="text-bg-primary"&gt;Primary background&lt;/div&gt;
+&lt;div class="text-danger"&gt;Danger text&lt;/div&gt;
+&lt;div class="text-bg-danger"&gt;Danger background&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customization -->
+        <div id="customization" class="card fade-in mb-5">
+            <div class="card-header">
+                <h2 class="mb-0"><i class="fas fa-paint-brush section-icon"></i> Customization</h2>
+            </div>
+            <div class="card-body">
+                <h3>Customizing Bootstrap</h3>
+                <p class="lead">Bootstrap can be customized to match your design system through Sass variables, CSS variables, and more.</p>
+                
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i> The best way to customize Bootstrap is by using Sass variables before importing Bootstrap's source Sass files.
+                </div>
+
+                <h4 class="mt-4">Sass Customization</h4>
+                <div class="example-container">
+                    <div class="example-title"><i class="fas fa-cog"></i> Customizing with Sass</div>
+                    <p>Create a custom Sass file to override Bootstrap's default variables:</p>
+                    <pre><code>// Custom.scss
+// Override default variables before importing Bootstrap
+
+$primary: #8a2be2;
+$secondary: #ff00aa;
+$body-bg: #f8f9fa;
+$font-family-sans-serif: 'Montserrat', sans-serif;
+
+// Import Bootstrap
+@import "~bootstrap/scss/bootstrap";</code></pre>
+                    
+                    <h5 class="mt-3">Key Sass Variables</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul>
+                                <li><code>$primary</code>: Primary brand color</li>
+                                <li><code>$secondary</code>: Secondary brand color</li>
+                                <li><code>$success</code>, <code>$info</code>, <code>$warning</code>, <code>$danger</code>: Other theme colors</li>
+                                <li><code>$body-bg</code>: Background color</li>
+                                <li><code>$body-color</code>: Default text color</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li><code>$font-family-sans-serif</code>: Default font stack</li>
+                                <li><code>$border-radius</code>: Default border radius</li>
+                                <li><code>$spacer</code>: Base spacing unit</li>
+                                <li><code>$enable-shadows</code>: Enable/disable shadows</li>
+                                <li><code>$enable-rounded</code>: Enable/disable rounded corners</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="mt-4">CSS Variables</h4>
+                <div class="example-container">
+                    <div class="example-title"><i class="fas fa-sliders-h"></i> CSS Variable Overrides</div>
+                    <p>Bootstrap 5 includes many CSS variables that can be overridden without Sass:</p>
+                    <pre><code>:root {
+    --bs-primary: #8a2be2;
+    --bs-primary-rgb: 138, 43, 226;
+    --bs-body-font-family: 'Montserrat', sans-serif;
+    --bs-body-bg: #f8f9fa;
+    --bs-border-radius: 0.5rem;
+    --bs-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}</code></pre>
+                    
+                    <h5 class="mt-3">Common CSS Variables</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul>
+                                <li><code>--bs-{color}</code>: Theme colors (primary, secondary, etc.)</li>
+                                <li><code>--bs-body-*</code>: Body styles (font, bg, color)</li>
+                                <li><code>--bs-border-*</code>: Border styles</li>
+                                <li><code>--bs-box-shadow</code>: Default box shadow</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li><code>--bs-font-sans-serif</code>: Font stack</li>
+                                <li><code>--bs-border-radius</code>: Border radius</li>
+                                <li><code>--bs-link-*</code>: Link styles</li>
+                                <li><code>--bs-{component}-*</code>: Component-specific variables</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="mt-4">Build Customization</h4>
+                <div class="example-container">
+                    <div class="example-title"><i class="fas fa-box-open"></i> Importing Only What You Need</div>
+                    <p>You can import only the Bootstrap components you need to reduce file size:</p>
+                    <pre><code>// Custom.scss
+// Required
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+// Optional
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/utilities/api";</code></pre>
+                    
+                    <h5 class="mt-3">Optimization Tips</h5>
+                    <ul>
+                        <li>Only import components you actually use</li>
+                        <li>Disable features you don't need (rounded corners, shadows, etc.)</li>
+                        <li>Modify the grid columns or gutters if needed</li>
+                        <li>Remove unused utility classes</li>
+                        <li>Use PurgeCSS to remove unused CSS in production</li>
+                    </ul>
+                </div>
+
+                <h4 class="mt-4">Creating Custom Components</h4>
+                <div class="example-container">
+                    <div class="example-title"><i class="fas fa-plus-circle"></i> Extending Bootstrap</div>
+                    <p>You can create your own components that follow Bootstrap's design patterns:</p>
+                    <pre><code>// Custom button variant
+.btn-custom {
+    @include button-variant(
+        $background: #8a2be2,
+        $border: #8a2be2,
+        $hover-background: darken(#8a2be2, 7.5%),
+        $hover-border: darken(#8a2be2, 10%),
+        $active-background: darken(#8a2be2, 10%),
+        $active-border: darken(#8a2be2, 12.5%)
+    );
+}
+
+// Custom alert variant
+.alert-custom {
+    @include alert-variant(
+        $background: rgba(138, 43, 226, 0.1),
+        $border: rgba(138, 43, 226, 0.3),
+        $color: darken(#8a2be2, 10%)
+    );
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interview Questions -->
+        <div id="interview" class="card fade-in mb-5">
+            <div class="card-header">
+                <h2 class="mb-0"><i class="fas fa-comment-alt section-icon"></i> Bootstrap Interview Questions</h2>
+            </div>
+            <div class="card-body">
+                <h3>Top 20 Bootstrap Interview Questions with Answers</h3>
+                <p class="lead">Prepare for your next front-end developer interview with these common Bootstrap questions.</p>
+                
+                <div class="interview-question">
+                    <div class="question">1. What is Bootstrap and why would you use it?</div>
+                    <div class="answer">
+                        <p>Bootstrap is an open-source front-end framework that provides pre-designed components and utilities for building responsive, mobile-first websites. It includes HTML and CSS-based design templates for typography, forms, buttons, navigation, and other interface components, as well as optional JavaScript extensions.</p>
+                        <p>Reasons to use Bootstrap:</p>
+                        <ul>
+                            <li>Speeds up development with ready-to-use components</li>
+                            <li>Ensures consistency across browsers and devices</li>
+                            <li>Provides a responsive grid system</li>
+                            <li>Has extensive documentation and community support</li>
+                            <li>Offers customization options through Sass variables</li>
+                        </ul>
+                        <p><strong>Reference:</strong> <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/" target="_blank">Bootstrap Introduction</a></p>
+                    </div>
+                </div>
+
+                <div class="interview-question">
+                    <div class="question">2. What are the key differences between Bootstrap 4 and Bootstrap 5?</div>
+                    <div class="answer">
+                        <p>Key differences between Bootstrap 4 and 5 include:</p>
+                        <ul>
+                            <li><strong>jQuery removed:</strong> Bootstrap 5 no longer depends on jQuery and uses vanilla JavaScript</li>
+                            <li><strong>Improved grid system:</strong> Added new grid tiers (xxl) and gutter utilities</li>
+                            <li><strong>Customization:</strong> Enhanced customization through CSS variables</li>
+                            <li><strong>Forms:</strong> Completely revamped form controls and validation</li>
+                            <li><strong>Utilities:</strong> New utility classes and responsive variants</li>
+                            <li><strong>Icons:</strong> New Bootstrap Icons library</li>
+                                                        <li><strong>RTL support:</strong> Built-in right-to-left text direction support</li>
+                            <li><strong>Offcanvas:</strong> New offcanvas component</li>
+                            <li><strong>Dropdowns:</strong> Improved dropdown positioning</li>
+                        </ul>
+                        <p><strong>Reference:</strong> <a href="https://getbootstrap.com/docs/5.0/migration/" target="_blank">Bootstrap 5 Migration Guide</a></p>
+                    </div>
+                </div>
+
+                <div class="interview-question">
+                    <div class="question">3. Explain Bootstrap's grid system.</div>
+                    <div class="answer">
+                        <p>Bootstrap's grid system is a responsive, mobile-first, flexbox-based layout system that uses a 12-column structure. Key features:</p>
+                        <ul>
+                            <li><strong>Containers:</strong> Provide a fixed-width or full-width container to house the grid</li>
+                            <li><strong>Rows:</strong> Horizontal groups of columns that ensure proper alignment</li>
+                            <li><strong>Columns:</strong> Content is placed within columns which are defined by classes like <code>.col-{breakpoint}-{columns}</code></li>
+                            <li><strong>Breakpoints:</strong> Six responsive breakpoints (xs, sm, md, lg, xl, xxl)</li>
+                            <li><strong>Gutters:</strong> Consistent spacing between columns controlled by padding</li>
+                            <li><strong>Flexbox:</strong> Built with flexbox for better alignment and distribution</li>
+                        </ul>
+                        <p>Example grid structure:</p>
+                        <pre><code>&lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-md-8"&gt;Main content&lt;/div&gt;
+        &lt;div class="col-md-4"&gt;Sidebar&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="interview-question">
+                    <div class="question">4. How do you customize Bootstrap without modifying the core files?</div>
+                    <div class="answer">
+                        <p>There are several ways to customize Bootstrap without touching the core files:</p>
+                        <ol>
+                            <li><strong>Sass variables:</strong> Override default variables before importing Bootstrap
+                                <pre><code>// Custom.scss
+$primary: #8a2be2;
+$font-family-sans-serif: 'Montserrat', sans-serif;
+@import "~bootstrap/scss/bootstrap";</code></pre>
+                            </li>
+                            <li><strong>CSS variables:</strong> Override Bootstrap's CSS variables
+                                <pre><code>:root {
+    --bs-primary: #8a2be2;
+    --bs-body-font-family: 'Montserrat', sans-serif;
+}</code></pre>
+                            </li>
+                            <li><strong>Utility classes:</strong> Create custom utilities using Bootstrap's utility API</li>
+                            <li><strong>Custom CSS:</strong> Add your own CSS file that overrides Bootstrap styles</li>
+                            <li><strong>Component modifiers:</strong> Create new component variations with modifier classes</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="interview-question">
+                    <div class="question">5. What are Bootstrap's breakpoints and how do they work?</div>
+                    <div class="answer">
+                        <p>Bootstrap's breakpoints define responsive ranges where layout changes occur. Bootstrap 5 has six breakpoints:</p>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Breakpoint</th>
+                                    <th>Class Prefix</th>
+                                    <th>Dimensions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>X-Small</td>
+                                    <td><code>None</code></td>
+                                    <td>&lt;576px</td>
+                                </tr>
+                                <tr>
+                                    <td>Small</td>
+                                    <td><code>sm</code></td>
+                                    <td>≥576px</td>
+                                </tr>
+                                <tr>
+                                    <td>Medium</td>
+                                    <td><code>md</code></td>
+                                    <td>≥768px</td>
+                                </tr>
+                                <tr>
+                                    <td>Large</td>
+                                    <td><code>lg</code></td>
+                                    <td>≥992px</td>
+                                </tr>
+                                <tr>
+                                    <td>X-Large</td>
+                                    <td><code>xl</code></td>
+                                    <td>≥1200px</td>
+                                </tr>
+                                <tr>
+                                    <td>XX-Large</td>
+                                    <td><code>xxl</code></td>
+                                    <td>≥1400px</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Breakpoints are used in responsive classes like <code>.col-md-6</code> (6 columns on medium and up) or <code>.d-lg-none</code> (hide on large screens).</p>
+                    </div>
+                </div>
+
+                <div class="interview-question">
+                    <div class="question">6. How does Bootstrap implement responsive design?</div>
+                    <div class="answer">
+                        <p>Bootstrap implements responsive design through several key features:</p>
+                        <ul>
+                            <li><strong>Mobile-first approach:</strong> Styles are designed for mobile devices first, then enhanced for larger screens</li>
+                            <li><strong>Responsive grid system:</strong> The 12-column grid automatically adjusts based on screen size</li>
+                            <li><strong>Responsive breakpoints:</strong> Layout changes occur at specific screen widths</li>
+                            <li><strong>Flexible images:</strong> Images scale with their parent elements using <code>.img-fluid</code></li>
+                            <li><strong>Responsive utilities:</strong> Classes for showing/hiding content at different breakpoints</li>
+                            <li><strong>Responsive components:</strong> Components like navbars collapse on smaller screens</li>
+                            <li><strong>Viewport meta tag:</strong> Ensures proper rendering and touch zooming</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="interview-question">
+                    <div class="question">7. What are Bootstrap's utility classes and how are they useful?</div>
+                    <div class="answer">
+                        <p>Bootstrap utility classes are single-purpose classes that typically target one CSS property. They provide:</p>
+                        <ul>
+                            <li><strong>Rapid styling:</strong> Quickly apply styles without writing custom CSS</li>
+                            <li><strong>Consistency:</strong> Use predefined values for spacing, colors, etc.</li>
+                            <li><strong>Responsive variants:</strong> Most utilities have responsive versions (e.g., <code>.mt-md-3</code>)</li>
+                            <li><strong>Flexibility:</strong> Combine utilities to create custom designs</li>
+                        </ul>
+                        <p>Common utility categories:</p>
+                        <ul>
+                            <li><strong>Spacing:</strong> <code>.m-*</code>, <code>.p-*</code> (margin and padding)</li>
+                            <li><strong>Text:</strong> <code>.text-*</code>, <code>.fs-*</code> (text alignment, size, etc.)</li>
+                            <li><strong>Display:</strong> <code>.d-*</code> (display properties)</li>
+                            <li><strong>Flexbox:</strong> <code>.d-flex</code>, <code>.justify-content-*</code></li>
+                            <li><strong>Colors:</strong> <code>.text-*</code>, <code>.bg-*</code></li>
+                            <li><strong>Position:</strong> <code>.position-*</code>, <code>.top-*</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="interview-question">
+                    <div class="question">8. How do you create a responsive navbar in Bootstrap?</div>
+                    <div class="answer">
+                        <p>Here's how to create a responsive navbar that collapses on mobile:</p>
+                        <pre><code>&lt;nav class="navbar navbar-expand-lg navbar-light bg-light"&gt;
+    &lt;div class="container-fluid"&gt;
+        &lt;a class="navbar-brand" href="#"&gt;Logo&lt;/a&gt;
+        &lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"&gt;
+            &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class="collapse navbar-collapse" id="navbarNav"&gt;
+            &lt;ul class="navbar-nav"&gt;
+                &lt;li class="nav-item"&gt;
+                    &lt;a class="nav-link active" href="#"&gt;Home&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class="nav-item"&gt;
+                    &lt;a class="nav-link" href="#"&gt;Features&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class="nav-item"&gt;
+                    &lt;a class="nav-link" href="#"&gt;Pricing&lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+                        <p>Key elements:</p>
+                        <ul>
+                            <li><code>.navbar-expand-lg</code>: Navbar expands at lg breakpoint</li>
+                            <li><code>.navbar-toggler</code>: Button that toggles the collapsed menu</li>
+                            <li><code>.collapse.navbar-collapse</code>: Content that collapses on mobile</li>
+                            <li><code>data-bs-toggle="collapse"</code>: JavaScript behavior for toggling</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="interview-question">
+                    <div class="question">9. What is the purpose of containers in Bootstrap?</div>
+                    <div class="answer">
+                        <p>Containers are Bootstrap's most basic layout element and are required when using the grid system. They:</p>
+                        <ul>
+                            <li><strong>Provide width constraints:</strong> Containers set max-widths at each breakpoint</li>
+                            <li><strong>Center content:</strong> Automatically center content horizontally with padding</li>
+                            <li><strong>Enable the grid:</strong> The grid system should be placed within a container</li>
+                            <li><strong>Create responsive padding:</strong> Provide consistent gutters on the sides</li>
+                        </ul>
+                        <p>Bootstrap provides three container types:</p>
+                        <ol>
+                            <li><code>.container</code>: Fixed-width container that changes max-width at breakpoints</li>
+                            <li><code>.container-fluid</code>: Full-width container that spans 100% of the viewport</li>
+                            <li><code>.container-{breakpoint}</code>: Responsive containers that are 100% wide until the specified breakpoint</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="interview-question">
+                    <div class="question">10. How do you implement dark mode in Bootstrap 5?</div>
+                    <div class="answer">
+                        <p>Bootstrap 5.3+ includes built-in support for dark mode. Implementation options:</p>
+                        <p><strong>1. Using data-bs-theme attribute:</strong></p>
+                        <pre><code>&lt;div data-bs-theme="dark"&gt;
+    &lt;!-- Dark mode content --&gt;
+&lt;/div&gt;</code></pre>
+                        
+                        <p><strong>2. Via CSS:</strong></p>
+                        <pre><code>.dark-mode {
+    color-scheme: dark;
+    --bs-body-color: #dee2e6;
+    --bs-body-bg: #212529;
+    /* Additional dark mode variables */
+}</code></pre>
+                        
+                        <p><strong>3. Toggle with JavaScript:</strong></p>
+                        <pre><code>// Toggle between light/dark
+function toggleTheme() {
+    const htmlEl = document.documentElement;
+    if (htmlEl.getAttribute('data-bs-theme') === 'dark') {
+        htmlEl.removeAttribute('data-bs-theme');
+    } else {
+        htmlEl.setAttribute('data-bs-theme', 'dark');
+    }
+}</code></pre>
+                        
+                        <p>Bootstrap components automatically adapt to dark mode when the theme is changed.</p>
+                    </div>
+                </div>
+
+                <div class="interview-question">
+                    <div class="question">11. What are Bootstrap's spacing utilities and how do they work?</div>
+                    <div class="answer">
+                        <p>Bootstrap's spacing utilities provide responsive margin and padding classes with a consistent scale. The naming convention is:</p>
+                        <p><code>{property}{sides}-{size}</code></p>
+                        <ul>
+                            <li><strong>Property:</strong> <code>m</code> (margin) or <code>p</code> (padding)</li>
+                            <li><strong>Sides:</strong>
+                                <ul>
+                                    <li><code>t</code> - top</li>
+                                    <li><code>b</code> - bottom</li>
+                                    <li><code>s</code> - start (left in LTR)</li>
+                                    <li><code>e</code> - end (right in LTR)</li>
+                                    <li><code>x</code> - left and right</li>
+                                    <li><code>y</code> - top and bottom</li>
+                                    <li>blank - all sides</li>
+                                </ul>
+                            </li>
+                            <li><strong>Size:</strong> 0-5 (0=0, 1=0.25rem, 2=0.5rem, 3=1rem, 4=1.5rem, 5=3rem) or auto</li>
+                        </ul>
+                        <p>Examples:</p>
+                        <ul>
+                            <li><code>.mt-3</code>: margin-top: 1rem</li>
+                            <li><code>.px-2</code>: padding-left and padding-right: 0.5rem</li>
+                            <li><code>.mb-auto</code>: margin-bottom: auto</li>
+                        </ul>
+                        <p>Responsive variants add breakpoint abbreviations (sm, md, lg, xl, xxl):</p>
+                        <ul>
+                            <li><code>.mt-md-4</code>: margin-top: 1.5rem on medium screens and up</li>
+                            <li><code>.px-lg-0</code>: no horizontal padding on large screens and up</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="interview-question">
+                    <div class="question">12. How do you customize Bootstrap's default theme colors?</div>
+                    <div class="answer">
+                        <p>There are several ways to customize Bootstrap's theme colors:</p>
+                        <p><strong>1. Using Sass variables (recommended):</strong></p>
+                        <pre><code>// Custom.scss
+$primary: #8a2be2;
+$secondary: #ff00aa;
+$success: #00ff7f;
+$info: #00d9ff;
+$warning: #ffde59;
+$danger: #ff1493;
+$dark: #0f0526;
+
+@import "~bootstrap/scss/bootstrap";</code></pre>
+                        
+                        <p><strong>2. Using CSS variables:</strong></p>
+                        <pre><code>:root {
+    --bs-primary: #8a2be2;
+    --bs-primary-rgb: 138, 43, 226;
+    --bs-secondary: #ff00aa;
+    --bs-secondary-rgb: 255, 0, 170;
+}</code></pre>
+                        
+                        <p><strong>3. Creating custom color maps (Sass):</strong></p>
+                        <pre><code>$custom-colors: (
+    "electric": #00d9ff,
+    "neon": #ff00aa,
+    "violet": #8a2be2
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);</code></pre>
+                        
+                        <p>After customization, all Bootstrap components using these variables will automatically update.</p>
+                    </div>
+                </div>
+
+                <div class="interview-question">
+                    <div class="question">13. What is the purpose of Bootstrap's reboot.css?</div>
+                    <div class="answer">
+                        <p>Reboot.css is Bootstrap's modern CSS reset that:</p>
+                        <ul>
+                            <li><strong>Normalizes styles:</strong> Provides consistent baseline across browsers</li>
+                            <li><strong>Uses modern standards:</strong> Built with rem units and prefers em units for media queries</li>
+                            <li><strong>Improves accessibility:</strong> Sets better defaults for screen readers</li>
+                            <li><strong>Simplifies inheritance:</strong> Many elements inherit typography styles from <code>&lt;body&gt;</code></li>
+                            <li><strong>Box-sizing:</strong> Sets <code>box-sizing: border-box</code> globally</li>
+                            <li><strong>Margin reset:</strong> Removes margins from many elements</li>
+                        </ul>
+                        <p>Key differences from traditional CSS resets:</p>
+                        <ul>
+                            <li>Doesn't aggressively remove all styling</li>
+                            <li>Preserves useful browser defaults</li>
+                            <li>Focuses on normalizing rather than resetting</li>
+                            <li>Part of Bootstrap's base layer (after variables, before components)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="interview-question">
+                    <div class="question">14. How do you create a responsive card layout in Bootstrap?</div>
+                    <div class="answer">
+                        <p>Here's how to create a responsive card layout using Bootstrap's grid and card components:</p>
+                        <pre><code>&lt;div class="container"&gt;
+    &lt;div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"&gt;
+        &lt;div class="col"&gt;
+            &lt;div class="card"&gt;
+                &lt;img src="..." class="card-img-top" alt="..."&gt;
+                &lt;div class="card-body"&gt;
+                    &lt;h5 class="card-title"&gt;Card title&lt;/h5&gt;
+                    &lt;p class="card-text"&gt;Some quick example text.&lt;/p&gt;
+                    &lt;a href="#" class="btn btn-primary"&gt;Go somewhere&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- Repeat more cards --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        <p>Key features:</p>
+                        <ul>
+                            <li><code>row-cols-*</code>: Controls how many cards per row at different breakpoints</li>
+                            <li><code>g-4</code>: Adds consistent gutter spacing between cards</li>
+                            <li>Each card is wrapped in a <code>.col</code> for proper grid behavior</li>
+                            <li>Cards automatically adjust their height and layout</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="interview-question">
+                    <div class="question">15. What are Bootstrap's modal components and how do they work?</div>
+                    <div class="answer">
+                        <p>Bootstrap modals are flexible dialog prompts with:</p>
+                        <ul>
+                            <li><strong>Overlay:</strong> Darkens the page behind the modal</li>
+                            <li><strong>Dialog box:</strong> Contains the modal content</li>
+                            <li><strong>Header/body/footer:</strong> Standard structure for content organization</li>
+                            <li><strong>Focus trapping:</strong> Keyboard focus remains within the modal</li>
+                            <li><strong>Animation:</strong> Smooth fade-in/out transitions</li>
+                        </ul>
+                        <p>Basic modal implementation:</p>
+                        <pre><code>&lt;!-- Button trigger modal --&gt;
+&lt;button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"&gt;
+    Launch modal
+&lt;/button&gt;
+
+&lt;!-- Modal --&gt;
+&lt;div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true"&gt;
+    &lt;div class="modal-dialog"&gt;
+        &lt;div class="modal-content"&gt;
+            &lt;div class="modal-header"&gt;
+                &lt;h5 class="modal-title"&gt;Modal title&lt;/h5&gt;
+                &lt;button type="button" class="btn-close" data-bs-dismiss="modal"&gt;&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="modal-body"&gt;
+                Modal body content
+            &lt;/div&gt;
+            &lt;div class="modal-footer"&gt;
+                &lt;button type="button" class="btn btn-secondary" data-bs-dismiss="modal"&gt;Close&lt;/button&gt;
+                &lt;button type="button" class="btn btn-primary"&gt;Save changes&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        <p>Modal options include:</p>
+                        <ul>
+                            <li><strong>Sizes:</strong> <code>.modal-sm</code>, <code>.modal-lg</code>, <code>.modal-xl</code></li>
+                            <li><strong>Scrolling:</strong> <code>.modal-dialog-scrollable</code></li>
+                            <li><strong>Centering:</strong> <code>.modal-dialog-centered</code></li>
+                            <li><strong>Fullscreen:</strong> <code>.modal-fullscreen</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="interview-question">
+                    <div class="question">16. How do you implement form validation in Bootstrap?</div>
+                    <div class="answer">
+                        <p>Bootstrap provides client-side form validation styles and JavaScript. Implementation steps:</p>
+                        <p><strong>1. HTML Structure:</strong></p>
+                        <pre><code>&lt;form class="needs-validation" novalidate&gt;
+    &lt;div class="mb-3"&gt;
+        &lt;label for="validationCustom01" class="form-label"&gt;First name&lt;/label&gt;
+        &lt;input type="text" class="form-control" id="validationCustom01" required&gt;
+        &lt;div class="valid-feedback"&gt;Looks good!&lt;/div&gt;
+        &lt;div class="invalid-feedback"&gt;Please provide a valid name.&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button class="btn btn-primary" type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                        
+                        <p><strong>2. JavaScript Validation:</strong></p>
+                        <pre><code>(function () {
+    'use strict'
+    const forms = document.querySelectorAll('.needs-validation')
+    Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+        }, false)
+    })
+})()</code></pre>
+                        
+                        <p>Key features:</p>
+                        <ul>
+                            <li><code>.needs-validation</code>: Identifies forms that need validation</li>
+                            <li><code>.is-invalid</code>/<code>.is-valid</code>: Applied based on validation state</li>
+                            <li><code>.invalid-feedback</code>/<code>.valid-feedback</code>: Show validation messages</li>
+                            <li>Works with native HTML5 validation attributes (<code>required</code>, <code>pattern</code>, etc.)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="interview-question">
+                    <div class="question">17. What are Bootstrap's responsive embed utilities and how do they work?</div>
+                    <div class="answer">
+                        <p>Bootstrap provides responsive embed utilities for maintaining aspect ratios of embedded content like videos or iframes. Implementation:</p>
+                        <pre><code>&lt;!-- 16:9 aspect ratio --&gt;
+&lt;div class="ratio ratio-16x9"&gt;
+    &lt;iframe src="https://www.youtube.com/..." allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;!-- 4:3 aspect ratio --&gt;
+&lt;div class="ratio ratio-4x3"&gt;
+    &lt;iframe src="https://www.youtube.com/..." allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;</code></pre>
+                        <p>Available aspect ratio classes:</p>
+                        <ul>
+                            <li><code>ratio-1x1</code></li>
+                            <li><code>ratio-4x3</code></li>
+                            <li><code>ratio-16x9</code></li>
+                            <li><code>ratio-21x9</code></li>
+                        </ul>
+                        <p>You can also create custom ratios with CSS variables:</p>
+                        <pre><code>&lt;div class="ratio" style="--bs-aspect-ratio: 50%;"&gt;
+    &lt;iframe src="..."&gt;&lt;/iframe&gt;
+&lt;/div&gt;</code></pre>
+                        <p>This replaced the older <code>.embed-responsive</code> classes from Bootstrap 4.</p>
+                    </div>
+                </div>
+
+                <div class="interview-question">
+                    <div class="question">18. How do you create a responsive table in Bootstrap?</div>
+                    <div class="answer">
+                        <p>For responsive tables that scroll horizontally on small devices:</p>
+                        <pre><code>&lt;div class="table-responsive"&gt;
+    &lt;table class="table"&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Header 1&lt;/th&gt;
+                &lt;th&gt;Header 2&lt;/th&gt;
+                &lt;!-- More headers --&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Cell 1&lt;/td&gt;
+                &lt;td&gt;Cell 2&lt;/td&gt;
+                &lt;!-- More cells --&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+                        <p>Breakpoint-specific responsive tables:</p>
+                        <ul>
+                            <li><code>.table-responsive-sm</code>: Responsive up to 576px</li>
+                            <li><code>.table-responsive-md</code>: Responsive up to 768px</li>
+                            <li><code>.table-responsive-lg</code>: Responsive up to 992px</li>
+                            <li><code>.table-responsive-xl</code>: Responsive up to 1200px</li>
+                            <li><code>.table-responsive-xxl</code>: Responsive up to 1400px</li>
+                        </ul>
+                        <p>Additional table features:</p>
+                        <ul>
+                            <li><code>.table-striped</code>: Zebra-striping</li>
+                            <li><code>.table-bordered</code>: Borders on all sides</li>
+                            <li><code>.table-hover</code>: Highlight rows on hover</li>
+                            <li><code>.table-dark</code>: Dark mode tables</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="interview-question">
+                    <div class="question">19. What is the purpose of Bootstrap's utility API?</div>
+                    <div class="answer">
+                        <p>Bootstrap's utility API is a Sass-based tool for generating utility classes. It allows:</p>
+                        <ul>
+                            <li><strong>Custom utility generation:</strong> Create your own utility classes</li>
+                            <li><strong>Extension:</strong> Add new utilities to Bootstrap's default set</li>
+                            <li><strong>Modification:</strong> Override or remove default utilities</li>
+                            <li><strong>Responsive variants:</strong> Easily generate responsive utility classes</li>
+                        </ul>
+                        <p>Example usage to create custom utilities:</p>
+                        <pre><code>// Custom.scss
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+
+// Add custom utilities
+$utilities: map-merge(
+    $utilities,
+    (
+        "cursor": (
+            property: cursor,
+            class: cursor,
+            values: auto pointer grab,
+        ),
+        "rotate": (
+            property: transform,
+            class: rotate,
+            values: (
+                15: rotate(15deg),
+                30: rotate(30deg),
+                45: rotate(45deg),
+            ),
+        )
+    )
+);
+
+@import "~bootstrap/scss/utilities/api";</code></pre>
+                        <p>This generates classes like <code>.cursor-pointer</code> and <code>.rotate-15</code> that can be used in HTML.</p>
+                    </div>
+                </div>
+
+                <div class="interview-question">
+                    <div class="question">20. How do you optimize Bootstrap for production?</div>
+                    <div class="answer">
+                        <p>To optimize Bootstrap for production:</p>
+                        <ol>
+                            <li><strong>Customize imports:</strong> Only import components you need
+                                <pre><code>// Import only necessary Bootstrap components
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/buttons"; // Only buttons</code></pre>
+                            </li>
+                            <li><strong>Disable features:</strong> Turn off unused features in Sass variables
+                                <pre><code>$enable-rounded: false;
+$enable-shadows: false;
+$enable-gradients: false;</code></pre>
+                            </li>
+                            <li><strong>Use PurgeCSS:</strong> Remove unused CSS classes</li>
+                            <li><strong>Minify CSS/JS:</strong> Use minified production versions</li>
+                            <li><strong>Use CDN:</strong> For common setups, use Bootstrap CDN</li>
+                            <li><strong>Tree shaking:</strong> If using a bundler like Webpack</li>
+                            <li><strong>Optimize images:</strong> Compress images used in components</li>
+                            <li><strong>Lazy loading:</strong> For components like modals or carousels</li>
+                        </ol>
+                        <p>Additional optimization techniques:</p>
+                        <ul>
+                            <li>Use utility classes instead of custom CSS when possible</li>
+                            <li>Reduce customizations that increase CSS size</li>
+                            <li>Consider using Bootstrap's RTL version if needed</li>
+                            <li>Implement code splitting for larger applications</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <div id="quiz" class="card fade-in mb-3 mt-5">
+            <div class="card-header">
+                <h2 class="mb-0"><i class="fas fa-question-circle section-icon"></i> Bootstrap Quiz</h2>
+            </div>
+            <div class="card-body">
+                <h3>Test Your Bootstrap Knowledge</h3>
+                <p class="lead">Take this interactive quiz to assess your Bootstrap skills. Answers are revealed when you select an option.</p>
+                
+                <div class="quiz-card">
+                    <div class="quiz-question">1. Which class creates a full-width container that spans the entire width of the viewport?</div>
+                    <div class="quiz-option" data-correct="false">.container</div>
+                    <div class="quiz-option" data-correct="true">.container-fluid</div>
+                    <div class="quiz-option" data-correct="false">.container-full</div>
+                    <div class="quiz-option" data-correct="false">.container-wide</div>
+                </div>
+
+                <div class="quiz-card">
+                    <div class="quiz-question">2. What is the correct class for a primary button in Bootstrap?</div>
+                    <div class="quiz-option" data-correct="false">.btn-main</div>
+                    <div class="quiz-option" data-correct="false">.btn-blue</div>
+                    <div class="quiz-option" data-correct="true">.btn-primary</div>
+                    <div class="quiz-option" data-correct="false">.btn-default</div>
+                </div>
+
+                <div class="quiz-card">
+                    <div class="quiz-question">3. Which Bootstrap component creates a slideshow of images or content?</div>
+                    <div class="quiz-option" data-correct="false">.slider</div>
+                    <div class="quiz-option" data-correct="true">.carousel</div>
+                    <div class="quiz-option" data-correct="false">.gallery</div>
+                    <div class="quiz-option" data-correct="false">.slideshow</div>
+                </div>
+
+                <div class="quiz-card">
+                    <div class="quiz-question">4. How many columns does Bootstrap's grid system use by default?</div>
+                    <div class="quiz-option" data-correct="false">10</div>
+                    <div class="quiz-option" data-correct="false">16</div>
+                    <div class="quiz-option" data-correct="true">12</div>
+                    <div class="quiz-option" data-correct="false">8</div>
+                </div>
+
+                <div class="quiz-card">
+                    <div class="quiz-question">5. Which class adds zebra-striping to a table?</div>
+                    <div class="quiz-option" data-correct="false">.table-zebra</div>
+                    <div class="quiz-option" data-correct="false">.table-alternate</div>
+                    <div class="quiz-option" data-correct="true">.table-striped</div>
+                    <div class="quiz-option" data-correct="false">.table-banded</div>
+                </div>
+
+                <div class="quiz-card">
+                    <div class="quiz-question">6. What does the .img-fluid class do?</div>
+                    <div class="quiz-option" data-correct="false">Adds a fluid animation effect</div>
+                    <div class="quiz-option" data-correct="false">Makes the image grayscale</div>
+                    <div class="quiz-option" data-correct="true">Makes images responsive</div>
+                    <div class="quiz-option" data-correct="false">Adds a water effect</div>
+                </div>
+
+                <div class="quiz-card">
+                    <div class="quiz-question">7. Which class creates a fixed navbar at the top of the viewport?</div>
+                    <div class="quiz-option" data-correct="false">.navbar-fixed</div>
+                    <div class="quiz-option" data-correct="true">.fixed-top</div>
+                    <div class="quiz-option" data-correct="false">.navbar-static</div>
+                    <div class="quiz-option" data-correct="false">.sticky-nav</div>
+                </div>
+
+                <div class="quiz-card">
+                    <div class="quiz-question">8. What is the purpose of the data-bs-toggle="collapse" attribute?</div>
+                    <div class="quiz-option" data-correct="false">To toggle between light and dark mode</div>
+                    <div class="quiz-option" data-correct="false">To switch between tabs</div>
+                    <div class="quiz-option" data-correct="true">To show/hide collapsible content</div>
+                    <div class="quiz-option" data-correct="false">To toggle form validation</div>
+                </div>
+
+                <div class="quiz-card">
+                    <div class="quiz-question">9. Which class adds rounded corners to an element?</div>
+                    <div class="quiz-option" data-correct="false">.rounded-corners</div>
+                    <div class="quiz-option" data-correct="false">.corner-round</div>
+                    <div class="quiz-option" data-correct="true">.rounded</div>
+                    <div class="quiz-option" data-correct="false">.border-round</div>
+                </div>
+
+                <div class="quiz-card">
+                    <div class="quiz-question">10. What does the .d-none class do?</div>
+                    <div class="quiz-option" data-correct="false">Disables an element</div>
+                    <div class="quiz-option" data-correct="true">Hides an element</div>
+                    <div class="quiz-option" data-correct="false">Adds a dark overlay</div>
+                    <div class="quiz-option" data-correct="false">Creates a dropdown</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="footer-about">
+                        <a href="#" class="footer-logo text-decoration-none">BOOTSTRAP<span style="color: var(--electric-blue)">5</span></a>
+                        <p class="mt-3">The most comprehensive guide to Bootstrap 5, featuring modern design patterns, best practices, and expert techniques.</p>
+                    </div>
+                    <div class="footer-social mt-4">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/balamurugan-webdeveloper/"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-codepen"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <div class="footer-links">
+                        <h5>Resources</h5>
+                        <ul>
+                            <li><a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" target="_blank">Official Documentation</a></li>
+                            <li><a href="https://github.com/twbs/bootstrap" target="_blank">GitHub Repository</a></li>
+                            <li><a href="https://themes.getbootstrap.com/" target="_blank">Bootstrap Themes</a></li>
+                            <li><a href="https://blog.getbootstrap.com/" target="_blank">Bootstrap Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <div class="footer-links">
+                        <h5>Sections</h5>
+                        <ul>
+                            <li><a href="#grid">Grid System</a></li>
+                            <li><a href="#components">Components</a></li>
+                            <li><a href="#utilities">Utilities</a></li>
+                            <li><a href="#customization">Customization</a></li>
+                            <li><a href="#quiz">Quiz</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="footer-links">
+                        <h5>About This Guide</h5>
+                        <p>This comprehensive Bootstrap 5 reference was created to help developers master modern front-end development techniques.</p>
+                        <div class="creator-info mt-4">
+                            <p>Created with <i class="fas fa-heart" style="color: var(--neon-pink)"></i> by:</p>
+                            <h6>C. Balamurugan</h6>
+                            <p class="small mt-2">Front-end Developer & UI Specialist</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bootstrap 5 Mastery Guide. All rights reserved. | Designed with Bootstrap 5</p>
+            </div>
+        </div>
+    </footer>
+
+  <!-- 🔼 Back to Top Button -->
+  <a href="#" class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+
+        window.addEventListener('scroll', function () {
+      var backToTop = document.getElementById('backToTop');
+      if (window.pageYOffset > 300) {
+        backToTop.classList.add('active');
+      } else {
+        backToTop.classList.remove('active');
+      }
+    });
+
+    // Optional smooth scroll on click
+    document.getElementById('backToTop').addEventListener('click', function (e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }); 
+
+
+        // Quiz functionality
+        document.querySelectorAll('.quiz-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const isCorrect = this.getAttribute('data-correct') === 'true';
+                const parentCard = this.closest('.quiz-card');
+                
+                // Remove all highlight classes first
+                parentCard.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.classList.remove('correct', 'incorrect');
+                });
+                
+                // Add appropriate class to clicked option
+                this.classList.add(isCorrect ? 'correct' : 'incorrect');
+                
+                // If incorrect, highlight the correct answer
+                if (!isCorrect) {
+                    const correctOption = parentCard.querySelector('.quiz-option[data-correct="true"]');
+                    correctOption.classList.add('correct');
+                }
+            });
+        });
+        
+        // Toast demo
+        const toastTrigger = document.getElementById('liveToastBtn');
+        const toastLiveExample = document.getElementById('liveToast');
+        if (toastTrigger) {
+            toastTrigger.addEventListener('click', () => {
+                const toast = new bootstrap.Toast(toastLiveExample);
+                toast.show();
+            });
+        }
+        
+        // Modal demo
+        const exampleModal = document.getElementById('exampleModal');
+        if (exampleModal) {
+            exampleModal.addEventListener('show.bs.modal', event => {
+                // Do something when modal shows
+            });
+        }
+        
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        if (darkModeToggle) {
+            darkModeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const icon = darkModeToggle.querySelector('i');
+                if (document.body.classList.contains('dark-mode')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            });
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update URL
+                    if (history.pushState) {
+                        history.pushState(null, null, targetId);
+                    } else {
+                        location.hash = targetId;
+                    }
+                }
+            });
+        });
+        
+        // Activate current nav link based on scroll position
+        const sections = document.querySelectorAll('section, .card');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', function() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
